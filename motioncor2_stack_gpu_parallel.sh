@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script to run motioncor2 using GPU for all the stack
-# Base Command for MotionCor2 correction
-# MotionCor2 -InMrc Micrographs/FoilHole_8787103_Data_8785658_8785659_20160610_0935_movie.mrcs -OutMrc Micrographs/FoilHole_8787103_Data_8785658_8785659_20160610_0935.mrc -LogFile Micrographs/FoilHole_8787103_Data_8785658_8785659_20160610_0935_MotionCor2.log -Patch 5 5 -LogFile ${outDir}/${foo}_MotionCor2.log -StackZ 7 -FmDose 2.3 -InitDose 3.5 -PixSize 1.395 -kV 300 
+# Base Command for MotionCor2 correction for Falcon 2 movie
+# MotionCor2 -InMrc Micrographs/ABC_movie.mrcs -OutMrc Micrographs/ABC.mrc -LogFile Micrographs/ABC_MotionCor2.log -Patch 5 5 -LogFile ${outDir}/${foo}_MotionCor2.log -StackZ 7 -FmDose 2.3 -InitDose 3.5 -PixSize 1.395 -kV 300 
 ssss
 inputDir='Movies'
 outDir='Micrographs'
