@@ -20,9 +20,10 @@ _rlnSphericalAberration #7
 _rlnAmplitudeContrast #8 
 _rlnMagnification #9 
 _rlnDetectorPixelSize #10 
-_rlnCtfFigureOfMerit #11";
+_rlnCtfFigureOfMerit #11
+_rlnFinalResolution #12";
 
-mag=100358 # For Falcon 2
+mag=101818 # For Falcon 2
 vol=300
 amp=0.10
 cs=2.7
@@ -37,5 +38,6 @@ do
         defv=`grep -a 'Final Value' $i | awk '{print $2}' `
         astig=`grep -a 'Final Value' $i | awk '{print $3}' `
         ctffom=`grep -a 'Final Value' $i | awk '{print $4}' `
-        printf "%s %s %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f\n" ${microDir}/${base}.mrc ${microDir}/${base}.ctf:mrc $defu $defv $astig $vol $cs $amp $mag $detPixSize $ctffom
-done;
+        reslimit=`grep -a 'RES_LIMIT' $i | awk '{print $7}' `
+        printf "%s %s %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f %10.6f\n" ${microDir}/${base}.mrc ${microDir}/${base}.ctf:mrc $defu $defv $astig $vol $cs $amp $mag $detPixSize $ctffom $reslimit
+ done;
