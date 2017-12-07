@@ -1,12 +1,12 @@
 #!/bin/bash
 # Script to parse the RES_LIMIT from micrograph
-# Move micrograph > 7 in CTF estimation to a back up folder
+# Move micrograph with CTF RES_LIMIT > 6 in CTF estimation to a back up folder (bak)
 # HB 2016
 
-inputList='list_microname.txt'
+inputDir='Micrographs'
 
-echo "rm list_reslimit.txt" > xx
-awk '{printf ("grep \x27RES_LIMIT\x27 %s_gctf.log | awk \x27{print $7}\x27 >> list_reslimit.txt\n", $2)}' < $inputList >> xx 
+mkdir bak
+
+grep 'RES_LIMIT' ${inputDir}/*gctf.log | sed 's/_gctf.*LIMIT//' | awk '{if ($2 > 6) printf "mv %s* bak\n", $1}' > xx
 
 sh xx
-
