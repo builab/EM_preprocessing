@@ -1,0 +1,27 @@
+#!/bin/bash
+#SBATCH --ntasks=2
+#SBATCH --partition=gtx
+#SBATCH --error=motioncor2.log
+#SBATCH --output=motioncor2.out
+#SBATCH --job-name=MotionCor
+#SBATCH --exclusive
+
+inputDir='Movies'
+outDir='Micrographs'
+
+if [ ! -d "$outDir" ]; then
+        mkdir $outDir
+else
+        echo "${outDir} exists. Continue in 2s anyway ..!"
+        sleep 2s;
+fi
+
+
+for i in ${inputDir}/*_movie.mrcs;
+do
+        foo=${i#${inputDir}/}
+        foo=${foo/_movie.mrcs}
+                #echo MotionCor2 -InMrc ${i} -OutMrc ${outDir}/${foo}.mrc -Patch 5 5 -LogFile ${outDir}/${foo}_MotionCor2.log -StackZ 7 -FmDose 2.3 -InitDose 3.5 -PixSize 1.395 -kV 300 -Gpu ${count} &
+                MotionCor2 -InMrc ${i} -OutMrc ${outDir}/${foo}.mrc -Patch 5 5 -LogFile ${outDir}/${foo}_MotionCor2.log -StackZ 7 -FmDose 3.0 -PixSize 1.375 -kV 300
+
+done
