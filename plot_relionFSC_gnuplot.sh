@@ -1,3 +1,4 @@
+# Script to plot multiple Relion FSC into 1 plot
 #In the terminal
 #1.375 = pixel size of map
 grep -v 'angpix' Chlamy_DMT_fsc.star | awk '{if (NF > 5) print 1.375*$2, $6}'  > ChlamyDMT.dat
