@@ -11,7 +11,7 @@ microDir='Micrographs'
 for i in ${microDir}/*.mrc
 do
         base=${i/.mrc}
-        if [ -e "${base}.box" ]; then
+        if [ -e "${base}.txt" ]; then
                 continue;
         fi
         echo e2helixboxer.py $i --ptcl-coords=${i/.mrc}.txt
