@@ -4,6 +4,7 @@
 """
 Created on Sat Feb	5 17:35:42 2022
 Script to bin all micrographs from a star file
+The script is a bit too complicated unfortunately
 @author: kbui2
 """
 
