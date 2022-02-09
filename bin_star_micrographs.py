@@ -32,7 +32,7 @@ if __name__=='__main__':
 	parser.add_argument('--outdir', help='Output folder',required=True)
 	parser.add_argument('--bin', help='Binning',required=True)
 	parser.add_argument('--j', help='Number of processors',required=False,default=1)
-  parser.add_argument('--opticsless', help='With or without opticsgroup. Value 1 or 0',required=False,default="0")
+	parser.add_argument('--opticsless', help='With or without opticsgroup. Value 1 or 0',required=False,default="0")
 
 
 	
